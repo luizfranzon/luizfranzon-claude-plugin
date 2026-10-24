@@ -1,0 +1,8 @@
+{
+  "manifest_version": 3,
+  "name": "luizfranzon MCP bridge",
+  "version": "0.1.0",
+  "description": "Conecta o Chrome ao MCP luizfranzon via WebSocket (localhost).",
+  "permissions": ["debugger", "tabs", "alarms"],
+  "background": { "service_worker": "background.js" }
+}

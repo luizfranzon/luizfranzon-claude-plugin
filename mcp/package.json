@@ -1,0 +1,31 @@
+{
+  "name": "luizfranzon-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/main.ts",
+    "predev": "npm run build:page",
+    "build:page": "node scripts/build-page.mjs",
+    "prebuild": "npm run build:page",
+    "build": "esbuild src/main.ts --bundle --platform=node --format=esm --target=node20 --outfile=dist/index.js --external:playwright-core --external:ws",
+    "pretypecheck": "npm run build:page",
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm run build:page",
+    "test": "tsx --test \"src/**/*.test.ts\"",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "playwright-core": "^1.64.1",
+    "ws": "^8.22.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/ws": "^8.18.2",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
